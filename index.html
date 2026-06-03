@@ -32,7 +32,7 @@ img{max-width:100%;display:block}
 .logoimg-cert{height:46px;width:auto;margin:0 auto}
 
 /* ---------- Top progress bar ---------- */
-#topbar{position:fixed;top:0;left:0;right:0;height:56px;background:rgba(255,255,255,.92);backdrop-filter:blur(10px);
+#topbar{position:fixed;top:0;left:0;right:0;height:56px;background:#fff;
   border-bottom:1px solid var(--g2);z-index:50;display:flex;align-items:center;justify-content:space-between;padding:0 24px;transition:transform .3s}
 #topbar .ttl{font-size:14px;color:var(--g5);font-weight:700}
 #progwrap{position:fixed;top:56px;left:0;right:0;height:4px;background:var(--g2);z-index:50}
@@ -44,15 +44,14 @@ img{max-width:100%;display:block}
 @keyframes fade{from{opacity:0;transform:translateY(12px)}to{opacity:1;transform:none}}
 
 /* ---------- Welcome ---------- */
-#welcome{height:100vh;min-height:560px;background:var(--slb-blue);color:#fff;align-items:center;position:relative;overflow:hidden}
+#welcome{min-height:100vh;background:var(--slb-blue);color:#fff;align-items:center;position:relative;overflow:hidden;padding-top:56px}
 #welcome.active{display:flex}
-body:has(#welcome.active){overflow:hidden}
 #welcome::before{content:"";position:absolute;inset:0;background:
   radial-gradient(900px 500px at 85% -10%,rgba(0,210,220,.25),transparent 60%),
   radial-gradient(700px 600px at 10% 110%,rgba(5,20,100,.6),transparent 55%);}
 #welcome .hero-img{position:absolute;right:0;bottom:0;width:52%;height:100%;object-fit:cover;
   -webkit-mask-image:linear-gradient(90deg,transparent,#000 38%);mask-image:linear-gradient(90deg,transparent,#000 38%);opacity:.65}
-#welcome .inner{position:relative;z-index:2;padding:80px 0}
+#welcome .inner{position:relative;z-index:2;padding:48px 0}
 .eyebrow{font-size:13px;letter-spacing:3px;text-transform:uppercase;color:var(--aqua);font-weight:700;margin-bottom:18px}
 #welcome h1{font-size:clamp(38px,6vw,72px);font-weight:300;line-height:1.02;letter-spacing:-1px;max-width:14ch}
 #welcome h1 b{font-weight:700}
@@ -642,8 +641,6 @@ function show(id){
   document.getElementById(id).classList.add('active');
   // title text only shows on the landing page
   document.getElementById('tbTitle').style.display = (id==='welcome') ? 'inline' : 'none';
-  // lock scroll on the single-viewport landing page; allow it everywhere else
-  document.body.style.overflow = (id==='welcome') ? 'hidden' : 'auto';
   toTop();
 }
 function startInduction(){
